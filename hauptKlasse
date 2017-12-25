@@ -1,0 +1,128 @@
+import java.util.Scanner;
+
+public class hauptKlasse {
+	
+	final static String c = "VON ZWEI BRUECHEN";
+	
+	public static void main(String[] args) {
+		
+		long zeit;
+		long endzeit = 100;
+		long startzeit = System.currentTimeMillis() / 1000;
+		System.out.println("PLEASE WAIT SYSTEM IS STARTING...");
+		while (true) {
+			try {
+				Thread.sleep(1000);
+			}
+			catch (InterruptedException e) {
+				break;
+			}
+			int zufall = (int) (100*Math.random());
+			zeit = System.currentTimeMillis() / 1000 - startzeit;
+			int sollZeit = (int) zeit + zufall;
+			if(sollZeit > endzeit) {
+				System.out.println("SYSTEM IS LOADED");
+				System.out.println("-----------------------");
+				System.out.println("-----PROGRAM START-----");
+				System.out.println("-----------------------");
+				System.out.println();
+				menue();
+			}
+		}
+	}
+	
+	public static void menue() {
+		while(true) {
+			System.out.println("1 = ADDITION "+c);
+			System.out.println("2 = SUBTRAKTION "+c);
+			System.out.println("3 = MULTIPLIKATION "+c);
+			System.out.println("4 = DIVISION "+c);
+			System.out.println("5 = ENDE");
+			
+			Scanner eingabe = new Scanner(System.in);
+			String input = eingabe.nextLine();
+			
+			try{
+				byte i = Byte.parseByte(input);
+				if(i >= 1 && i <= 5) {
+					switch(i) {
+					case 1:
+						plus();
+						break;
+					case 2:
+						minus();
+						break;
+					case 3:
+						mal();
+						break;
+					case 4:
+						geteilt();
+						break;
+					case 5:
+						programmEnde();
+						break;
+					}
+				}
+				else{
+					System.out.println("FEHLER!!!");
+				}
+			}
+			catch (Exception e) {
+				System.out.println("FEHLER!!!");
+			}
+		}
+	}
+	
+	public static void plus() {
+		System.out.println("--------------ADDITION--------------");
+		additionEinesBruchs verbinden = new additionEinesBruchs();
+		verbinden.addiereBruch();
+		System.out.println();
+	}
+	
+	public static void minus() {
+		System.out.println("--------------SUBTRAKTION--------------");
+		subtraktionEinesBruchs verbinden2 = new subtraktionEinesBruchs();
+		verbinden2.subtrahiereBruch();
+		System.out.println();
+	}
+	
+	public static void mal() {
+		System.out.println("--------------MULTIPLIKATION--------------");
+		multiplikationEinesBruchs verbinden3 = new multiplikationEinesBruchs();
+		verbinden3.multipliziereBruch();
+		System.out.println();
+	}
+	
+	public static void geteilt() {
+		System.out.println("--------------DIVISION--------------");
+		divisionEinesBruchs verbinden4 = new divisionEinesBruchs();
+		verbinden4.dividiereBruch();
+		System.out.println();
+	}
+	
+	public static void programmEnde() {
+		long zeit;
+		long endzeit = 20;
+		long startzeit = System.currentTimeMillis() / 1000;
+		System.out.println("SYSTEM IS SHOTING DOWN...");
+		while (true) {
+			try {
+				Thread.sleep(1000);
+			}
+			catch (InterruptedException e) {
+				break;
+			}
+			int zufall = (int) (10*Math.random());
+			zeit = System.currentTimeMillis() / 1000 - startzeit;
+			int sollZeit = (int) zeit + zufall;
+			if(sollZeit > endzeit) {
+				System.out.println("----------------------");
+				System.out.println("-----PROGRAM ENDE-----");
+				System.out.println("----------------------");
+				System.out.println();
+				System.exit(0);
+			}
+		}
+	}
+}
