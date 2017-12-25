@@ -1,0 +1,45 @@
+public class bruchMutterKlasse {
+
+    private int zaehlern1;
+    private int nennern1;
+    private int zaehlern2;
+    private int nennern2;
+    
+    // Setzen der Setter und Getter Methoden
+    // Damit die Privaten Attribute für bestimmte Klassen
+    // sichtbar sind.
+
+    // Getter und Setter des Ersten Bruchs
+    public int getZaehler1() {
+        return zaehlern1;
+    }
+    
+    public void setZaehler1(int zaehler1) {
+    	this.zaehlern1 = zaehler1;
+    }
+    
+    public int getNenner1() {
+       return nennern1;
+    }
+    
+    public void setNenner1(int nenner1) {
+        this.nennern1 = nenner1;
+    }
+    
+    // Getter und Setter des zweiten Bruchs
+    public int getZaehler2() {
+    	return zaehlern2;
+    }
+    
+    public void setZaehler2(int zaehler2) {
+    	this.zaehlern2 = zaehler2;
+    }
+    
+    public int getNenner2() {
+    	return nennern2;
+    }
+    
+    public void setNenner2(int nenner2) {
+    	this.nennern2 = nenner2;
+    }
+}
